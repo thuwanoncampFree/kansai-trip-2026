@@ -411,7 +411,22 @@
             white-space: pre-line;
         }
 
-        /* Budget Summary Styling */
+        /* Pay Type Badges */
+        .pay-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.7rem;
+            padding: 2px 7px;
+            border-radius: 6px;
+            font-weight: 600;
+            margin-left: 6px;
+        }
+        .pay-icoca { background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; }
+        .pay-cash { background: #fef3c7; color: #b45309; border: 1px solid #fde68a; }
+        .pay-card { background: #f3e8ff; color: #6b21a8; border: 1px solid #e9d5ff; }
+
+        /* Budget Summary Styling for 2 People */
         .budget-hero-card {
             background: linear-gradient(135deg, #059669 0%, #10b981 100%);
             color: #ffffff;
@@ -421,7 +436,7 @@
             box-shadow: 0 8px 25px rgba(16, 185, 129, 0.25);
         }
         .budget-hero-title {
-            font-size: 1.15rem;
+            font-size: 1.12rem;
             font-weight: 700;
             display: flex;
             align-items: center;
@@ -478,9 +493,10 @@
         .budget-day-item {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             font-size: 0.82rem;
             color: #334155;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
 
         .bottom-nav {
@@ -583,9 +599,9 @@
                 <span class="day-date lang-en" style="display:none;">02 Nov</span>
             </div>
             <div class="day-tab budget-tab" onclick="switchDay('budget')">
-                <span class="day-num"><i class="fa-solid fa-calculator"></i></span>
-                <span class="day-date lang-th">งบประมาณ</span>
-                <span class="day-date lang-en" style="display:none;">Budget</span>
+                <span class="day-num"><i class="fa-solid fa-users"></i></span>
+                <span class="day-date lang-th">งบ 2 คน</span>
+                <span class="day-date lang-en" style="display:none;">2 People</span>
             </div>
         </div>
     </div>
@@ -2208,108 +2224,183 @@ OR Sky Shuttle Bus straight from Outlet ➔ KIX Airport (370 JPY 20 mins)</span>
                 </div>
             </div>
         </div>
-        <!-- ==================== BUDGET PAGE ==================== -->
+        <!-- ==================== BUDGET PAGE (2 PEOPLE & PAY METHODS) ==================== -->
         <div id="day-budget" class="day-section">
             <div class="budget-hero-card">
                 <div class="budget-hero-title">
-                    <i class="fa-solid fa-wallet"></i>
-                    <span class="lang-th">สรุปงบประมาณท่องเที่ยว 50,000 บาท</span>
-                    <span class="lang-en" style="display:none;">Budget Summary (50,000 THB)</span>
+                    <i class="fa-solid fa-users"></i>
+                    <span class="lang-th">สรุปงบประมาณสำหรับ 2 คน (งบ 50,000 บาท)</span>
+                    <span class="lang-en" style="display:none;">Budget Summary for 2 People (50,000 THB)</span>
                 </div>
                 <div class="budget-grid">
                     <div class="budget-box">
-                        <div class="budget-box-label lang-th">งบเตรียมไปทั้งหมด</div>
-                        <div class="budget-box-label lang-en" style="display:none;">Total Budget</div>
+                        <div class="budget-box-label lang-th">งบเตรียมไป (2 คน)</div>
+                        <div class="budget-box-label lang-en" style="display:none;">Total Budget (2 Paxs)</div>
                         <div class="budget-box-val">50,000 ฿</div>
                         <div class="budget-box-sub">~217,391 JPY</div>
                     </div>
                     <div class="budget-box">
-                        <div class="budget-box-label lang-th">ค่าใช้จ่ายตามแพลน</div>
-                        <div class="budget-box-label lang-en" style="display:none;">Planned Cost</div>
-                        <div class="budget-box-val">9,547 ฿</div>
-                        <div class="budget-box-sub">41,510 JPY</div>
+                        <div class="budget-box-label lang-th">รวมค่าแพลน 7 วัน (2 คน)</div>
+                        <div class="budget-box-label lang-en" style="display:none;">7-Day Cost (2 Paxs)</div>
+                        <div class="budget-box-val">19,095 ฿</div>
+                        <div class="budget-box-sub">83,020 JPY</div>
                     </div>
                 </div>
-                <div style="margin-top: 12px; background: rgba(255,255,255,0.2); border-radius: 12px; padding: 10px; text-align: center;">
-                    <div class="budget-box-label lang-th">💰 คงเหลือสำหรับช้อปปิ้ง & กินของเล่น</div>
-                    <div class="budget-box-label lang-en" style="display:none;">💰 Remaining for Shopping & Snacks</div>
-                    <div style="font-size: 1.4rem; font-weight: 700;">40,453 ฿ <span style="font-size: 0.9rem; font-weight: 400;">(~175,881 JPY)</span></div>
+                <div style="margin-top: 12px; background: rgba(255,255,255,0.2); border-radius: 12px; padding: 12px; text-align: center;">
+                    <div class="budget-box-label lang-th">🛍️ เงินคงเหลือรวมสำหรับช้อปปิ้ง & ซื้อของฝาก (2 คน)</div>
+                    <div class="budget-box-label lang-en" style="display:none;">🛍️ Total Remaining for Shopping & Souvenirs (2 Paxs)</div>
+                    <div style="font-size: 1.45rem; font-weight: 700;">30,905 ฿ <span style="font-size: 0.95rem; font-weight: 400;">(~134,371 JPY)</span></div>
+                    <div style="font-size: 0.75rem; opacity: 0.9; margin-top: 2px;">(ตกคนละประมาณ 15,452 ฿ / ~67,185 JPY)</div>
                 </div>
             </div>
 
-            <div style="font-weight: 700; color: #065f46; margin-bottom: 10px;" class="lang-th">📊 รายละเอียดสรุปค่าใช้จ่ายรายวัน (ไม่รวมตั๋วเครื่องบิน & โรงแรม)</div>
-            <div style="font-weight: 700; color: #065f46; margin-bottom: 10px; display:none;" class="lang-en">📊 Daily Cost Breakdown (Excl. Flight & Hotel)</div>
+            <div style="font-weight: 700; color: #065f46; margin-bottom: 10px;" class="lang-th">💳 สัญลักษณ์รูปแบบการชำระเงิน (Payment Methods):</div>
+            <div style="font-weight: 700; color: #065f46; margin-bottom: 10px; display:none;" class="lang-en">💳 Payment Method Legend:</div>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px;">
+                <span class="pay-badge pay-icoca"><i class="fa-solid fa-id-card"></i> แตะบัตร ICOCA ได้</span>
+                <span class="pay-badge pay-cash"><i class="fa-solid fa-money-bill-1-wave"></i> เงินสดเท่านั้น (CASH ONLY)</span>
+                <span class="pay-badge pay-card"><i class="fa-solid fa-credit-card"></i> บัตรเครดิต/เงินสด/ICOCA</span>
+            </div>
 
             <div class="budget-day-card">
                 <div class="budget-day-header">
                     <span>Day 1 (27 Oct) - ถึงโอซาก้า & Dotonbori</span>
-                    <span>2,180 JPY</span>
+                    <span>4,360 JPY (2 คน)</span>
                 </div>
-                <div class="budget-day-item"><span>• ค่ารถไฟ Nankai Rapi:t + รถไฟใต้ดิน</span><span>1,680 JPY</span></div>
-                <div class="budget-day-item"><span>• ค่ามัดจำบัตร IC Card (ได้เงินคืน)</span><span>500 JPY</span></div>
+                <div class="budget-day-item">
+                    <span>• ค่ารถไฟ Nankai Rapi:t + รถไฟใต้ดิน <span class="pay-badge pay-icoca">ICOCA</span></span>
+                    <span>3,360 JPY</span>
+                </div>
+                <div class="budget-day-item">
+                    <span>• ค่ามัดจำบัตร IC Card (คนละ 500 JPY - ได้คืน) <span class="pay-badge pay-cash">เงินสด</span></span>
+                    <span>1,000 JPY</span>
+                </div>
             </div>
 
             <div class="budget-day-card">
                 <div class="budget-day-header">
                     <span>Day 2 (28 Oct) - ปราสาทโอซาก้า & Umeda</span>
-                    <span>4,440 JPY</span>
+                    <span>8,880 JPY (2 คน)</span>
                 </div>
-                <div class="budget-day-item"><span>• ค่ารถไฟใต้ดินเดินทางทั้งวัน</span><span>1,050 JPY</span></div>
-                <div class="budget-day-item"><span>• ค่ารถไฟเล็กในสวนปราสาทโอซาก้า</span><span>400 JPY</span></div>
-                <div class="budget-day-item"><span>• ข้าวหน้าปลาไหลยักษ์ Unagi Izumo</span><span>2,990 JPY</span></div>
+                <div class="budget-day-item">
+                    <span>• ค่ารถไฟใต้ดินเดินทางทั้งวัน <span class="pay-badge pay-icoca">ICOCA</span></span>
+                    <span>2,100 JPY</span>
+                </div>
+                <div class="budget-day-item">
+                    <span>• ค่ารถไฟเล็กในสวนปราสาทโอซาก้า <span class="pay-badge pay-card">ICOCA / เงินสด</span></span>
+                    <span>800 JPY</span>
+                </div>
+                <div class="budget-day-item">
+                    <span>• ข้าวหน้าปลาไหลยักษ์ Unagi Izumo <span class="pay-badge pay-card">บัตรเครดิต / เงินสด</span></span>
+                    <span>5,980 JPY</span>
+                </div>
             </div>
 
             <div class="budget-day-card">
                 <div class="budget-day-header">
                     <span>Day 3 (29 Oct) - เกียวโต & ชาบู Dotonbori</span>
-                    <span>11,990 JPY</span>
+                    <span>23,980 JPY (2 คน)</span>
                 </div>
-                <div class="budget-day-item"><span>• รถไฟใต้ดิน + Shinkansen (Shin-Osaka ➔ Kyoto)</span><span>1,730 JPY</span></div>
-                <div class="budget-day-item"><span>• ค่ารถเมล์ & รถไฟในเกียวโต</span><span>940 JPY</span></div>
-                <div class="budget-day-item"><span>• ตั๋วรถไฟสายโรแมนติก Sagano</span><span>880 JPY</span></div>
-                <div class="budget-day-item"><span>• รถไฟกลับ Osaka & เดินทางในเมือง</span><span>1,550 JPY</span></div>
-                <div class="budget-day-item"><span>• บุฟเฟ่ต์ชาบู Niko Niko Nabe</span><span>6,890 JPY</span></div>
+                <div class="budget-day-item">
+                    <span>• รถไฟใต้ดิน + Shinkansen <span class="pay-badge pay-card">Klook / ICOCA</span></span>
+                    <span>3,460 JPY</span>
+                </div>
+                <div class="budget-day-item">
+                    <span>• ค่ารถเมล์ & รถไฟในเกียวโต <span class="pay-badge pay-icoca">ICOCA</span></span>
+                    <span>1,880 JPY</span>
+                </div>
+                <div class="budget-day-item">
+                    <span>• ตั๋วรถไฟสายโรแมนติก Sagano <span class="pay-badge pay-card">จองออนไลน์ / ICOCA</span></span>
+                    <span>1,760 JPY</span>
+                </div>
+                <div class="budget-day-item">
+                    <span>• รถไฟกลับ Osaka & เดินทางในเมือง <span class="pay-badge pay-icoca">ICOCA</span></span>
+                    <span>3,100 JPY</span>
+                </div>
+                <div class="budget-day-item">
+                    <span>• บุฟเฟ่ต์ชาบู Niko Niko Nabe <span class="pay-badge pay-card">บัตรเครดิต / เงินสด</span></span>
+                    <span>13,780 JPY</span>
+                </div>
             </div>
 
             <div class="budget-day-card">
                 <div class="budget-day-header">
                     <span>Day 4 (30 Oct) - โกเบ & สเต็กเนื้อโกเบ</span>
-                    <span>10,320 JPY</span>
+                    <span>20,640 JPY (2 คน)</span>
                 </div>
-                <div class="budget-day-item"><span>• ค่ารถไฟเดินทางไป-กลับ Kobe</span><span>2,010 JPY</span></div>
-                <div class="budget-day-item"><span>• สเต็กเนื้อโกเบ Steakland (Lunch Set)</span><span>3,500 JPY</span></div>
-                <div class="budget-day-item"><span>• ค่ารถไฟไป Sumaura & Maiko Park</span><span>710 JPY</span></div>
-                <div class="budget-day-item"><span>• ตั๋วสวนสนุก Sumaura Course A (รวมกระเช้า/ลิฟต์)</span><span>2,100 JPY</span></div>
-                <div class="budget-day-item"><span>• มื้อเย็นเนื้อทอด Gyukatsu Tomita</span><span>2,000 JPY</span></div>
+                <div class="budget-day-item">
+                    <span>• ค่ารถไฟเดินทางไป-กลับ Kobe <span class="pay-badge pay-icoca">ICOCA</span></span>
+                    <span>4,020 JPY</span>
+                </div>
+                <div class="budget-day-item">
+                    <span>• สเต็กเนื้อโกเบ Steakland <span class="pay-badge pay-card">บัตรเครดิต / เงินสด</span></span>
+                    <span>7,000 JPY</span>
+                </div>
+                <div class="budget-day-item">
+                    <span>• ค่ารถไฟไป Sumaura & Maiko Park <span class="pay-badge pay-icoca">ICOCA</span></span>
+                    <span>1,420 JPY</span>
+                </div>
+                <div class="budget-day-item">
+                    <span>• ตั๋วสวนสนุก Sumaura Course A <span class="pay-badge pay-card">ICOCA / เงินสด</span></span>
+                    <span>4,200 JPY</span>
+                </div>
+                <div class="budget-day-item">
+                    <span>• มื้อเย็นเนื้อทอด Gyukatsu Tomita <span class="pay-badge pay-cash">เงินสดเท่านั้น</span></span>
+                    <span>4,000 JPY</span>
+                </div>
             </div>
 
             <div class="budget-day-card">
                 <div class="budget-day-header">
                     <span>Day 5 (31 Oct) - อูจิมัทฉะ & Shinsekai</span>
-                    <span>4,950 JPY</span>
+                    <span>9,900 JPY (2 คน)</span>
                 </div>
-                <div class="budget-day-item"><span>• ค่ารถไฟเดินทางไป Uji & เดินทางในเกียวโต</span><span>2,130 JPY</span></div>
-                <div class="budget-day-item"><span>• ตั๋วเข้าชมวัด Byodo-in</span><span>700 JPY</span></div>
-                <div class="budget-day-item"><span>• มื้อเที่ยงราเมนมิชลิน Menya Inoichi</span><span>1,500 JPY</span></div>
-                <div class="budget-day-item"><span>• รถไฟ Keihan & Subway กลับโรงแรม</span><span>620 JPY</span></div>
+                <div class="budget-day-item">
+                    <span>• ค่ารถไฟเดินทางไป Uji & เกียวโต <span class="pay-badge pay-icoca">ICOCA</span></span>
+                    <span>4,260 JPY</span>
+                </div>
+                <div class="budget-day-item">
+                    <span>• ตั๋วเข้าชมวัด Byodo-in <span class="pay-badge pay-cash">เงินสด</span></span>
+                    <span>1,400 JPY</span>
+                </div>
+                <div class="budget-day-item">
+                    <span>• มื้อเที่ยงราเมนมิชลิน Menya Inoichi <span class="pay-badge pay-cash">เงินสดเท่านั้น</span></span>
+                    <span>3,000 JPY</span>
+                </div>
+                <div class="budget-day-item">
+                    <span>• รถไฟ Keihan & Subway กลับโรงแรม <span class="pay-badge pay-icoca">ICOCA</span></span>
+                    <span>1,240 JPY</span>
+                </div>
             </div>
 
             <div class="budget-day-card">
                 <div class="budget-day-header">
                     <span>Day 6 (01 Nov) - วัดดารุมะ & ปิ้งย่าง Rikimaru</span>
-                    <span>3,140 JPY</span>
+                    <span>6,280 JPY (2 คน)</span>
                 </div>
-                <div class="budget-day-item"><span>• ค่ารถไฟไป-กลับ สวนกวางนารา (Kintetsu)</span><span>1,140 JPY</span></div>
-                <div class="budget-day-item"><span>• ทานของทอด Kushikatsu ย่าน Shinsekai</span><span>2,000 JPY</span></div>
+                <div class="budget-day-item">
+                    <span>• ค่ารถไฟไป-กลับ นารา <span class="pay-badge pay-icoca">ICOCA</span></span>
+                    <span>2,280 JPY</span>
+                </div>
+                <div class="budget-day-item">
+                    <span>• ทานของทอด Kushikatsu ย่าน Shinsekai <span class="pay-badge pay-card">บัตรเครดิต / เงินสด</span></span>
+                    <span>4,000 JPY</span>
+                </div>
             </div>
 
             <div class="budget-day-card">
                 <div class="budget-day-header">
                     <span>Day 7 (02 Nov) - ตลาดปลา & Rinku Outlet</span>
-                    <span>4,490 JPY</span>
+                    <span>8,980 JPY (2 คน)</span>
                 </div>
-                <div class="budget-day-item"><span>• ทานอาหารทะเลสด ตลาดปลาคุโรมน</span><span>3,000 JPY</span></div>
-                <div class="budget-day-item"><span>• รถไฟด่วน Nankai Rapi:t กลับสนามบิน KIX</span><span>1,490 JPY</span></div>
+                <div class="budget-day-item">
+                    <span>• ทานอาหารทะเลสด ตลาดปลาคุโรมน <span class="pay-badge pay-cash">เงินสดเท่านั้น</span></span>
+                    <span>6,000 JPY</span>
+                </div>
+                <div class="budget-day-item">
+                    <span>• รถไฟด่วน Nankai Rapi:t กลับสนามบิน <span class="pay-badge pay-icoca">ICOCA / ตั๋ว</span></span>
+                    <span>2,980 JPY</span>
+                </div>
             </div>
         </div>
 
@@ -2322,9 +2413,9 @@ OR Sky Shuttle Bus straight from Outlet ➔ KIX Airport (370 JPY 20 mins)</span>
             <span class="lang-en" style="display:none;">Daily Plan</span>
         </button>
         <button class="nav-btn" onclick="switchDay('budget')">
-            <i class="fa-solid fa-wallet"></i>
-            <span class="lang-th">งบประมาณ</span>
-            <span class="lang-en" style="display:none;">Budget</span>
+            <i class="fa-solid fa-users"></i>
+            <span class="lang-th">งบ 2 คน</span>
+            <span class="lang-en" style="display:none;">2 People</span>
         </button>
         <a class="nav-btn" href="https://maps.app.goo.gl/LKZcXJvSJ9yiTsMb6?g_st=ic" target="_blank">
             <i class="fa-solid fa-hotel"></i>
